@@ -11,3 +11,4 @@ lib/
 pyvenv.cfg
 /.codeintel/
 /*.sublime-*
+pip-selfcheck.json
