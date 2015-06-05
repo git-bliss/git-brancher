@@ -63,7 +63,8 @@ Options:
         # check whether origin points to github.com
         git('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True)
     except subprocess.CalledProcessError:
-        print('Fatal: origin does not point to a github.com repository',
+        print('Fatal: origin does not point to a github.com repository. ' +
+              'Did you accidentally clone using the https url?',
               file=sys.stderr)
         sys.exit(1)
 

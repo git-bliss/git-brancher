@@ -142,7 +142,8 @@ class MainTest(unittest.TestCase):
             call('rev-parse --abbrev-ref HEAD', pipe=True),
         ])
         print_function.assert_has_calls([
-            call('Fatal: origin does not point to a github.com repository',
+            call('Fatal: origin does not point to a github.com repository. ' +
+                 'Did you accidentally clone using the https url?',
                  file=sys.stderr)
         ])
 
