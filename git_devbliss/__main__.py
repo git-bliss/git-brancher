@@ -164,7 +164,7 @@ def branch(branch_type, branch_name):
     git('pull --quiet origin master')
     try:
         git('checkout --quiet -b {branch_type}/{branch_name}'.format(
-            **locals()))
+            **locals()), pipe=True)
     except subprocess.CalledProcessError:
         git('checkout --quiet {branch_type}/{branch_name}'.format(
             **locals()))

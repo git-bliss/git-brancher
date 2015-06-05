@@ -156,7 +156,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b feature/test'),
+            call('checkout --quiet -b feature/test', pipe=True),
             call('push --set-upstream origin feature/test')
         ])
         self.assertEqual(print_function.call_count, 0)
@@ -180,7 +180,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b feature/test'),
+            call('checkout --quiet -b feature/test', pipe=True),
             call('checkout --quiet feature/test'),
             call('push --set-upstream origin feature/test')
         ])
@@ -197,7 +197,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b feature/finish'),
+            call('checkout --quiet -b feature/finish', pipe=True),
             call('push --set-upstream origin feature/finish')
         ])
         print_function.assert_has_calls([
@@ -217,7 +217,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b bug/test'),
+            call('checkout --quiet -b bug/test', pipe=True),
             call('push --set-upstream origin bug/test')
         ])
         self.assertEqual(print_function.call_count, 0)
@@ -232,7 +232,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b research/test'),
+            call('checkout --quiet -b research/test', pipe=True),
             call('push --set-upstream origin research/test')
         ])
         self.assertEqual(print_function.call_count, 0)
@@ -247,7 +247,7 @@ class MainTest(unittest.TestCase):
             call('remote -v | grep "^origin.*github.*:.*(fetch)$"', pipe=True),
             call('checkout --quiet master'),
             call('pull --quiet origin master'),
-            call('checkout --quiet -b refactor/test'),
+            call('checkout --quiet -b refactor/test', pipe=True),
             call('push --set-upstream origin refactor/test')
         ])
         self.assertEqual(print_function.call_count, 0)
